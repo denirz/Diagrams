@@ -1,2 +1,3 @@
 # Diagrams
-Plugin for Python Diagrams package
+Plugin for Python Diagrams  (https://github.com/mingrammer/diagrams) 
+
