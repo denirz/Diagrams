@@ -122,6 +122,9 @@ class DiagramDescription(object):
             self._enrich_edges_with_node_names(edge)
 
     def outputEdges(self):
+        """
+        :return:
+        """
         # Todo Use Pandas Here
         fields = ["source_name", "dest_name", "label", "description"]
         t = Template("$source_name|$dest_name|$label|$description")
