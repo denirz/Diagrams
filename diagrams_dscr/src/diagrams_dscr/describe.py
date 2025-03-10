@@ -3,7 +3,7 @@ from string import Template
 import logging
 
 logger = logging.getLogger(__name__)
-logger.setLevel(logging.DEBUG)
+logger.setLevel(logging.INFO)
 from diagrams import Diagram
 from enum import Enum
 import re
@@ -31,7 +31,6 @@ class DiagramDescription(object):
         self.n_others = 0
         self.n_graphs = 0
         for i in enumerate(diag.dot.body):
-            print(f"{self._detect_item(i[1])}  --> {i[0]}:{i[1]}")
             logger.warning(f"{self._detect_item(i[1])}  --> {i[0]}:{i[1]}")
             itemtype = self._detect_item(i[1])
             match itemtype:
@@ -68,14 +67,14 @@ class DiagramDescription(object):
         nodeattrs["id"] = s[0]
         quotedstring = []
         # There should be more elegang way  to retrieve  these data
-        print(s[1:])
+        logger.debug(f"nodestring[1:]:{s[1:]}")
         for item in s[1:]:
             item = item.replace("=", '="')
             item = item.replace("]", '"]')
             item = item + '"'
             quotedstring.append(item)
         attrstring = ",".join(quotedstring).strip('"').strip("[]")
-        print(f"Attrstring: {attrstring}")
+        logger.debug(f"Attrstring: {attrstring}")
         d = eval(f"dict({attrstring.replace('\n','\\n')})")
         nodeattrs.update(d)
         return nodeattrs
