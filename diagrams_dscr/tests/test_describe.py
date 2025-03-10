@@ -114,17 +114,28 @@ def test_outputedges(capsys,diagram_init):
 from AS17_1prom import diag
 @pytest.fixture
 def diagram_true():
-
     return diag
+from unittest.mock import patch, call
 
 def test_outputedges2(capsys,diagram_true):
-    with capsys.disabled():
-        d = DiagramDescription(diagram_true)
-        for n in d.nodes:
-            print(n)
-        print(d.n_nodes)
-        d.enrichedges_with_node_names()
-        print(d.edges)
-        print(d.nodes)
-        d.outputEdges()
+    """
+    test output Edge with actual diagram from the real life
+    :param caplog
+    :param capsys:
+    :param diagram_true:
+    :return:
+    """
+    with patch('diagrams_dscr.describe.logger') as mock_logger:
+        with capsys.disabled():
+            d = DiagramDescription(diagram_true)
+            print(mock_logger.mock_calls)
+            for n in d.nodes:
+                print(f"node -{n['label']}\n===\n")
+            print(f"number of nodes found: {d.n_nodes}")
+
+            d.enrichedges_with_node_names()
+            print(d.edges)
+            print(d.nodes)
+            d.outputEdges()
+
 
