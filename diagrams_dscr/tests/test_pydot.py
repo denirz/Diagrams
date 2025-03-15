@@ -11,10 +11,16 @@ def test_rea(capsys,diagram_true):
     with capsys.disabled():
         # print(diagram_true.dot)
         graphs = pydot.graph_from_dot_data(str(diagram_true.dot))
+        print(graphs)
         g = graphs[0]
         print(type(g))
         for noder in g.get_node_list():
             print(noder.get_attributes())
+            print(noder)
+        for subgraphs in g.get_subgraph_list():
+            print(subgraphs.get_attributes())
+
+
 
         # for i in g.get_subgraph_list():
         #     print(f"attrs_string = {i.get_name()}")
