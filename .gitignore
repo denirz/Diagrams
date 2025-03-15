@@ -1,3 +1,5 @@
 *.png
+*.csv
 .idea
 venv
+/diagrams_dscr/tests/edges.csv
