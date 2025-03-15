@@ -195,7 +195,9 @@ with Diagram("Архитектура АС 17.1", show=False,direction="LR",graph
     SOCSIEM << Edge(
         taillabel="soc-edr-app.sbertech.local:9991\n soc-edr-app.sbertech.local:9992",
         color="blue",
-        style="dashed", decorate="true", )<< vdb
+        style="dashed", decorate="true",
+        extended_description = "Установка EDR на рабочие станции пользователя\nhttps://itsm.infra.sbt/sd/operator/#uuid:serviceCall$31150977:serviceCall$extendedSup",
+        )<< vdb
     SOCSIEM << Edge(
         taillabel="soc-edr-app.sbertech.local:9991 \nsoc-edr-app.sbertech.local:9992",
         color="blue",
