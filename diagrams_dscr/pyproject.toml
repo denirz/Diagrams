@@ -66,8 +66,7 @@ check = "mypy --install-types --non-interactive {args:src/diagrams_dscr tests}"
 [tool.hatch.envs.test]
 dependencies = [
   "pytest",
-  "pydot",
-
+  "pytest-cov",
 ]
 
 [tool.coverage.run]
