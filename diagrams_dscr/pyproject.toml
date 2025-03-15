@@ -26,6 +26,8 @@ classifiers = [
 ]
 dependencies = [
   "diagrams",
+  "pandas",
+  "pudot"
 ]
 
 [project.urls]
