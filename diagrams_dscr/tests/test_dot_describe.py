@@ -3,12 +3,12 @@ import pytest
 from diagrams_dscr.dot_describe import DescribeDiagram
 
 
-from AS17_1prom import diag
+from .AS17_1prom import diag
 @pytest.fixture
 def diagram_true():
     return diag
 
-from test_diagrams import diagram_init
+from .test_diagrams import diagram_init
 
 def test_describe_digaram(capsys,diagram_true):
     dd = DescribeDiagram(diagram_true)

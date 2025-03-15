@@ -2,7 +2,7 @@ import pytest
 import pydot
 
 
-from AS17_1prom import diag
+from .AS17_1prom import diag
 @pytest.fixture
 def diagram_true():
     return diag
