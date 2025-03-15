@@ -6,7 +6,7 @@ from diagrams.saas.logging import NewRelic
 
 @pytest.fixture
 def diagram_init():
-    with Diagram("diagram_init", show=False) as diag:
+    with Diagram("diagram_init", show=False, filename="testini_tialdiagram") as diag:
         with Cluster("A"):
             b = Node("b")
             c = MachineLearning("SOME Mltool")
@@ -18,7 +18,7 @@ def diagram_init():
             a >> Edge(label="some Lablel", des="sdfff") >> b
             (
                 a
-                >> Edge(label="Поток логов", description="some test EDGE decritpions ")
+                >> Edge(label="Поток логов", description="some test EDGE decritpions ",headlabel="HEAD", color="red", style="dashed", fontcolor="red", fontname="Verdana")
                 >> d
             )
         pass

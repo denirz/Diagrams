@@ -1,9 +1,9 @@
 """
-This module contains the DescribeDigaram class, which is used to describe a diagram by extracting its nodes and edges.
+This module contains the DescribeDiagram class, which is used to describe a diagram by extracting its nodes and edges.
 It uses the Use Case pattern to represent the diagram as a set of nodes and edges.
 
 Usage pattern:
-1. Create an instance of the DescribeDigaram class by passing a Diagram object to the constructor.
+1. Create an instance of the DescribeDiagram class by passing a Diagram object to the constructor.
 2. Optional: Call the `get_subgraphs` method to retrieve all subgraphs from the diagram and add them to the `nodes` and `edges` lists.
 3. Optional: Call the `enrichedges_with_node_names` method to enrich all edges with the node names.
 4. check .nodes and .edges for the nodes and edges respectively
@@ -25,13 +25,13 @@ logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
 
 
-class DescribeDigaram(object):
+class DescribeDiagram(object):
     """
     This class is used to describe a diagram by extracting its nodes and edges.
     It uses the Use Case pattern to represent the diagram as a set of nodes and edges.
 
     Usage pattern:
-    1. Create an instance of the DescribeDigaram class by passing a Diagram object to the constructor.
+    1. Create an instance of the DescribeDiagram class by passing a Diagram object to the constructor.
     2. Optional: Call the `get_subgraphs` method to retrieve all subgraphs from the diagram and add them to the `nodes` and `edges` lists.
     3. Optional: Call the `enrichedges_with_node_names` method to enrich all edges with the node names.
     4. Call the `outputEdges` method to output all edges with the node names to a CSV file.

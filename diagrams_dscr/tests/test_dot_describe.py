@@ -1,6 +1,6 @@
 import pytest
 
-from diagrams_dscr.dot_describe import DescribeDigaram
+from diagrams_dscr.dot_describe import DescribeDiagram
 
 
 from AS17_1prom import diag
@@ -8,10 +8,12 @@ from AS17_1prom import diag
 def diagram_true():
     return diag
 
+from test_diagrams import diagram_init
+
 def test_describe_digaram(capsys,diagram_true):
-    dd = DescribeDigaram(diagram_true)
+    dd = DescribeDiagram(diagram_true)
     print(dd.filename)
-    assert isinstance(dd,DescribeDigaram)
+    assert isinstance(dd,DescribeDiagram)
     dd.get_subgraphs()
     print(f"{len(dd.nodes)} Nodes detected")
     print(f"{len(dd.edges)} Edges detected")
@@ -28,8 +30,8 @@ def test_describe_digaram(capsys,diagram_true):
 
 def test_describe_digaram_enrichedges(capsys,diagram_true):
     with capsys.disabled():
-        dd = DescribeDigaram(diagram_true)
-        assert isinstance(dd,DescribeDigaram)
+        dd = DescribeDiagram(diagram_true)
+        assert isinstance(dd,DescribeDiagram)
         dd.get_subgraphs()
         print(f"{len(dd.nodes)} Nodes detected")
         print(f"{len(dd.edges)} Edges detected")
@@ -45,11 +47,18 @@ def test_describe_digaram_enrichedges(capsys,diagram_true):
 
 def test_output_edges(capsys,diagram_true):
     with capsys.disabled():
-        dd = DescribeDigaram(diagram_true)
+        dd = DescribeDiagram(diagram_true)
         dd.outputEdges()
 def  test_outputEdges_fieldlist(capsys,diagram_true):
     with capsys.disabled():
-        dd = DescribeDigaram(diagram_true)
+        dd = DescribeDiagram(diagram_true)
+        res = dd.outputEdges(listFields=True)
+        print(res)
+        assert isinstance(res,list)
+        dd.outputEdges(Fields=['source_name','dest_name','headlabel','label','description'])
+def  test_outputEdges_fieldlist(capsys,diagram_init):
+    with capsys.disabled():
+        dd = DescribeDiagram(diagram_init)
         res = dd.outputEdges(listFields=True)
         print(res)
         assert isinstance(res,list)
