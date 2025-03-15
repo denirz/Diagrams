@@ -410,3 +410,8 @@ with Diagram(
     )
     sowadev >> gigachat
     sowadev >> gigacode
+
+# Example  how to use
+if __name__ == '__main__':
+    from diagrams_dscr import DescribeDiagram
+    DescribeDiagram(diag).outputEdges()
