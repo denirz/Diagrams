@@ -27,8 +27,11 @@ classifiers = [
 dependencies = [
   "diagrams",
   "pandas",
-  "pudot"
+  "pydot",
+  "numpy"
 ]
+
+
 
 [project.urls]
 Documentation = "https://github.com/denirz/diagrams-dscr#readme"
@@ -37,6 +40,21 @@ Source = "https://github.com/denirz/diagrams-dscr"
 
 [tool.hatch.version]
 path = "src/diagrams_dscr/__about__.py"
+
+[tool.hatch.build.targets.sdist]
+
+[tool.hatch.build.targets.wheel]
+include = ["src/diagrams_dscr/*.py",
+"README.md",
+"LICENSE.txt",
+]
+
+[tool.hatch.build.targets.wheel.sources]
+"src/diagrams_dscr" = "diagrams_dscr"
+
+[tool.hatch.build.targets.sdists.sources]
+"*" = "diagrams_dscr/*"
+
 
 [tool.hatch.envs.types]
 extra-dependencies = [
