@@ -3,3 +3,5 @@
 .idea
 venv
 /diagrams_dscr/tests/edges.csv
+/diagrams_dscr/dist/
+.coverage
