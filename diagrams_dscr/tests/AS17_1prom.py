@@ -139,7 +139,7 @@ with Diagram(
 
     user = User("User")
 
-    # TODO await  Основная интеграция с ITSM  https://itsm.infra.sbt/sd/operator/#uuid:serviceCall$31088491:serviceCall$request
+
     (
         api
         >> Edge(
@@ -294,7 +294,7 @@ with Diagram(
         >> vdb
     )
 
-    ##TODO await for   в теории работает - вот заявкка на проверку:  https://itsm.infra.sbt/sd/operator/#uuid:serviceCall$31150971:serviceCall$request
+
     (
         api
         << Edge(
