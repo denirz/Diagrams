@@ -1,8 +1,9 @@
-import pytest
 import pydot
-
+import pytest
 
 from .AS17_1prom import diag
+
+
 @pytest.fixture
 def diagram_true():
     return diag

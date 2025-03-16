@@ -16,16 +16,17 @@ Attributes:
     edges (list): A list of edges in the diagram.
 
 """
-from diagrams import Diagram
-import pydot
 import logging
+
 import pandas as pd
+import pydot
+from diagrams import Diagram
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
 
 
-class DescribeDiagram(object):
+class DescribeDiagram:
     """
     This class is used to describe a diagram by extracting its nodes and edges.
     It uses the Use Case pattern to represent the diagram as a set of nodes and edges.
@@ -60,7 +61,9 @@ class DescribeDiagram(object):
         """
         if subgraph is None:
             diagdata = pydot.graph_from_dot_data(str(self.dot))
-            assert len(diagdata) == 1
+            if len(diagdata) != 1:
+                logger.error("More than one diagram detected")
+                raise ValueError("More than one diagram detected")
             diagitem = diagdata[0]
         else:
             diagitem = subgraph

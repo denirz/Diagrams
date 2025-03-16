@@ -2,7 +2,6 @@ import pytest
 
 from diagrams_dscr.dot_describe import DescribeDiagram
 
-
 from .AS17_1prom import diag
 
 
@@ -11,7 +10,6 @@ def diagram_true():
     return diag
 
 
-from .test_diagrams import diagram_init
 
 
 def test_describe_digaram(capsys, diagram_true):
@@ -65,6 +63,7 @@ def test_outputEdges_fieldlist(capsys, diagram_true):
             Fields=["source_name", "dest_name", "headlabel", "label", "description"]
         )
 
+from .test_diagrams import diagram_init
 
 def test_outputEdges_fieldlist(capsys, diagram_init):
     with capsys.disabled():

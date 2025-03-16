@@ -12,32 +12,26 @@ https://graphviz.org/docs/clusters/
 https://graphviz.org/docs/attrs/decorate/
 """
 
-from diagrams import Diagram, Cluster, Edge, Node
-
-# AC Hosts
-from diagrams.aws.compute import EC2
-from diagrams.aws.compute import EC2Instance  # Other AC hosts
-from diagrams.aws.database import DocumentdbMongodbCompatibility as VectorStore
-from diagrams.oci.compute import BMWhite
-from diagrams.programming.language import Python
-
-# from diagrams.aws.network import NetworkFirewall as SOWA
-from diagrams.aws.network import APIGateway as SOWA
-
-# GigaChat:
-# from diagrams.saas.chat import RocketChat
-from diagrams.aws.ml import AugmentedAi as Giga
-from diagrams.programming.flowchart import Preparation
-from diagrams.onprem.client import User
-from diagrams.saas.analytics import Snowflake  # CodeChat
+from diagrams import Cluster, Diagram, Edge
 
 # from diagrams.onprem.groupware import Nextcloud as Confluence
 from diagrams.alibabacloud.compute import FunctionCompute as Confluence
 
+# AC Hosts
+from diagrams.aws.compute import (
+    EC2,
+    EC2Instance,  # Other AC hosts
+)
+from diagrams.aws.database import DocumentdbMongodbCompatibility as VectorStore
 
-from diagrams.generic.network import Firewall
-from diagrams.aws.database import RDS
-from diagrams.aws.network import ELB
+# GigaChat:
+# from diagrams.saas.chat import RocketChat
+from diagrams.aws.ml import AugmentedAi as Giga
+
+# from diagrams.aws.network import NetworkFirewall as SOWA
+from diagrams.aws.network import APIGateway as SOWA
+from diagrams.onprem.client import User
+from diagrams.programming.language import Python
 
 # https://www.graphviz.org/doc/info/attrs.html
 graph_attr = {
@@ -145,7 +139,7 @@ with Diagram(
 
     user = User("User")
 
-    # todo await  Основная интеграция с ITSM  https://itsm.infra.sbt/sd/operator/#uuid:serviceCall$31088491:serviceCall$request
+    # TODO await  Основная интеграция с ITSM  https://itsm.infra.sbt/sd/operator/#uuid:serviceCall$31088491:serviceCall$request
     (
         api
         >> Edge(
@@ -300,7 +294,7 @@ with Diagram(
         >> vdb
     )
 
-    ##todo await for   в теории работает - вот заявкка на проверку:  https://itsm.infra.sbt/sd/operator/#uuid:serviceCall$31150971:serviceCall$request
+    ##TODO await for   в теории работает - вот заявкка на проверку:  https://itsm.infra.sbt/sd/operator/#uuid:serviceCall$31150971:serviceCall$request
     (
         api
         << Edge(

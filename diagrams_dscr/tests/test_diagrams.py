@@ -1,5 +1,5 @@
 import pytest
-from diagrams import Diagram, Cluster, Edge, Node
+from diagrams import Cluster, Diagram, Edge, Node
 from diagrams.aws.ml import MachineLearning
 from diagrams.saas.logging import NewRelic
 
@@ -21,7 +21,6 @@ def diagram_init():
                 >> Edge(label="Поток логов", description="some test EDGE decritpions ",headlabel="HEAD", color="red", style="dashed", fontcolor="red", fontname="Verdana")
                 >> d
             )
-        pass
 
         return diag
 
