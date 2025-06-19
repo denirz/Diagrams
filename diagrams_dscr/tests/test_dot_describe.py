@@ -72,5 +72,6 @@ def test_outputEdges_fieldlist(capsys, diagram_init):
         print(res)
         assert isinstance(res, list)
         dd.outputEdges(
-            Fields=["source_name", "dest_name", "headlabel", "label", "description"]
+            # Fields=["source_name", "dest_name", "headlabel", "label", "description"]
+            Fields=["source_name", "dest_name", "headlabel", "label", "description", "source_ip", "dest_ip", "source_dns", "dest_dns"]
         )
