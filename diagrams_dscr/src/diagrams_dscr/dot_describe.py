@@ -101,7 +101,18 @@ class DescribeDiagram:
         for edge in self.edges:
             edge["source_name"] = node_dict.get(edge["source_id"], "")
             edge["dest_name"] = node_dict.get(edge["dest_id"], "")
-
+        node_ip = {node["id"]: node.get("ip", "-") for node in self.nodes}
+        for edge in self.edges:
+            edge["source_ip"] = node_ip.get(edge["source_id"], "")
+            edge["dest_ip"] = node_ip.get(edge["dest_id"], "")
+        node_dns = {node["id"]: node.get("dns", "-") for node in self.nodes}
+        for edge in self.edges:
+            edge["source_dns"] = node_dns.get(edge["source_id"], "")
+            edge["dest_dns"] = node_dns.get(edge["dest_id"], "")
+        node_asid = {node["id"]: node.get("asid", "-") for node in self.nodes}
+        for edge in self.edges:
+            edge["source_asid"] = node_asid.get(edge["source_id"], "")
+            edge["dest_asid"] = node_asid.get(edge["dest_id"], "")
     def outputEdges(
         self, filename=None, listFields=False, Fields=None
     ):
@@ -126,3 +137,5 @@ class DescribeDiagram:
             df[Fields].to_csv(filename)
         else:
             df.to_csv(filename)
+
+
